@@ -39,7 +39,7 @@
 `GET` `<host>/api/project/getAll`
 `GET` `<host>/api/project/get/:id`
 
-`POST` `/api/pledge`
+`POST` `<host>/api/pledge`
 
 ## view
 `<host>/` หน้า login
