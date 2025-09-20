@@ -33,11 +33,13 @@
 
 
 ## route api
-`POST` `<host>/api/auth/login`
+`POST` `<host>/api/auth/login`  
 
-`POST` `<host>/api/project/create`
-`GET` `<host>/api/project/getAll`
-`GET` `<host>/api/project/get/:id`
+`POST` `<host>/api/project/create`  
+
+`GET` `<host>/api/project/getAll`  
+
+`GET` `<host>/api/project/get/:id`  
 
 `POST` `<host>/api/pledge`
 
