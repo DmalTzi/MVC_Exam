@@ -1,38 +1,45 @@
-# sv
+# src/lib/server
+ส่วนของหลังบ้าน
+## server.ts
+คือตัว serve backend
+## route.s
+คือตัวกระจาย route ไปยัง route api ต่างๆ หรือ ก็คือ เป็นจุดรวมของ controller
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## controller
+### auth.ts
+ทำหน้าที่รับ request และ response ของการ login
+### pledge
+ทำหน้าที่รับ request และ response ของการรับเงินระดมทุน
+### project
+ทำหน้าที่รับ request และ response การสร้าง เรียกข้อมูล
 
-## Creating a project
+## model
+### middlerwares/auth.ts
+ทำการตรวจสอบว่า login ไหม ด้วย jwt และเก็บข้อมูลเพื่อนำไปใช้ต่อ
+### db/index.ts
+สำหรับการเชื่อมต่อฐานข้อมูล
+### db/schema.ts
+เป็น โครงสร้างของฐานข้อมูล
+### auth.ts
+เป็น logic สำหรับการ login ทำ auth แล้วสร้าง jwt และทำการเซฟลง cookie
+### pledge
+เป็น logic ของการจัดการการะดมทุน ตาม business logic ในโจทย์
+### project
+เป็น logic ของการสร้าง project เรียกใช้ ดึงข้อมูลทั้งหมด หรือ ข้อมูลหนึ่งอย่าง 
 
-If you're seeing this, you've probably already done this step. Congrats!
+## view
+### /route/+page.svelte
+หน้า login
 
-```sh
-# create a new project in the current directory
-npx sv create
 
-# create a new project in my-app
-npx sv create my-app
-```
+## route api
+`POST` `<host>/api/auth/login`
 
-## Developing
+`POST` `<host>/api/project/create`
+`GET` `<host>/api/project/getAll`
+`GET` `<host>/api/project/get/:id`
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+`POST` `/api/pledge`
 
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+## view
+`<host>/` หน้า login
